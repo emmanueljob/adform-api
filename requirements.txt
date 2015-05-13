@@ -1,0 +1,5 @@
+requests
+nose
+pyyaml
+pep8
+suds
