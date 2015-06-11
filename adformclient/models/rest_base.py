@@ -43,7 +43,6 @@ class RestBase(dict):
         if id in self:
             del self['id']
 
-        print "CREATING"
         response = self._execute("POST", self.get_create_url(), json.dumps(self.export_props()))
         obj = self._get_response_object(response)
         self.import_props(obj)
@@ -51,7 +50,7 @@ class RestBase(dict):
         return self.getId()
 
     def getId(self):
-        return self.get('id')
+        return self.get('Id')
 
     def save(self):
         if self.getId() is None or self.getId() == 0:

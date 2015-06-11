@@ -10,7 +10,9 @@ class AdvertiserTest(Base):
 
         loader = Advertiser(AdvertiserTest.conn)
         Advertiser.connection.get_authorization()
-        advs = loader.find() 
+        advs = loader.find("Accuen Demo") 
         
         for adv in advs:
+            print "\n"
+            print adv
             print adv['Name']

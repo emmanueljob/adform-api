@@ -6,12 +6,18 @@ class Advertiser(Base):
 
     wsdl_url = '/Services/AdvertiserService.svc/wsdl'
 
-    def find(self):
+    def find(self, name=None):
         
         client = Client(Advertiser.get_wsdl_url())
         header = {'Ticket': Advertiser.connection.get_authorization()}
         client.set_options(soapheaders=header)
-        resp = client.service.GetAdvertisers()
+        resp = None
+        if name:
+            names = client.factory.create('tns:NameCollection')
+            names.Name.append(name)
+            resp = client.service.GetAdvertisers(Names=names)
+        else:
+            resp = client.service.GetAdvertisers()
 
         rval = []
         for adv in resp:
