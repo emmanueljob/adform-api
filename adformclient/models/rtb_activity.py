@@ -35,7 +35,7 @@ class RTBActivity(RestBase):
                 inventory['State'] = 3
 
         for deal in deals:
-            self.get('Inventories').append({'InventorySourceId': deal, 'SourceId': deal, 'SourceType': 1, 'State': 2}})
+            self.get('Inventories').append({'InventorySourceId': deal, 'SourceId': deal, 'SourceType': 1, 'State': 2})
 
     def get_deals(self):
         rval = []
