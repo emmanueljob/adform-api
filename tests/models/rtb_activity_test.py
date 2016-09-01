@@ -10,7 +10,7 @@ class RTBActivityTest(Base):
 
     def testGetByCampaign(self):
         loader = Activity(RTBActivityTest.conn)
-        activities = loader.find_by_campaign(362140)
+        activities = loader.find_by_campaign(676348)
 
         for activity in activities:
             assert activity.get('Id') is not None

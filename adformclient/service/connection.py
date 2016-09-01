@@ -14,8 +14,8 @@ class Connection:
         Connection.get_authorization()
 
     def get_authorization(self):
-        if Connection.authorization_token is None:
-            Connection.authorization_token = self.authorize()
+        #if Connection.authorization_token is None:
+        Connection.authorization_token = self.authorize()
 
         return Connection.authorization_token
 

@@ -1,5 +1,6 @@
 import unittest
 
+from adformclient.service.connection import Connection
 from adformclient.models.advertiser import Advertiser
 from tests.base import Base
 
