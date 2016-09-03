@@ -17,14 +17,11 @@ class RTBActivityTest(Base):
 
     def testFind(self):
         loader = RTBActivity(RTBActivityTest.conn)
-        rtb_activity = loader.find(362140, 159383)
-
+        rtb_activity = loader.find(676348, 408079)
         assert rtb_activity.get('Id') is not None
 
     def testUpdate(self):
         loader = RTBActivity(RTBActivityTest.conn)
-        rtb_activity = loader.find(362140, 159383)
-        # {"SourceType": 1, "SourceName": "_PRM ExDealAppNexus", "DealId": null, "SourceId": 653, "State": 3, "InventorySourceId": 653, "Id": 10572292}
-        # rtb_activity['Inventories'].append({"State": 2, "InventorySourceId": 653, "SourceType": 1, "Id": 10572292})
-        rtb_activity.set_deals([653])
+        rtb_activity = loader.find(676348, 408079)
+        rtb_activity.set_deals([2641])
         rtb_activity.save()
