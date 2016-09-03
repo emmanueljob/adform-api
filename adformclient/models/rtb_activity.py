@@ -36,6 +36,9 @@ class RTBActivity(RestBase):
         # are set to.
         ##
 
+        # Make sure deals are all ints
+        deals = [int(deal) for deal in deals]
+        
         inventory_sources_we_have = {}
         # get a list inventory_sources we have already
         inventories = self.get('Inventories', [])
@@ -47,7 +50,7 @@ class RTBActivity(RestBase):
         # reset all current deals
         inventories = self.get('Inventories', [])
         for inventory in inventories:
-            if inventory['SourceId'] in deals:
+            if int(inventory['SourceId']) in deals:
                 # keep deal
                 inventory['State'] = 1
                 deals.remove(inventory['SourceId'])
