@@ -24,7 +24,7 @@ class Deal(RestBase):
             if response:
                 deals = self._get_response_objects(response)
                 for deal in deals:
-                    if deal.get('Id') == id:
+                    if int(deal.get('Id')) == int(id):
                         rval = self.__class__(RestBase.connection)
                         rval.import_props(deal)
                         return rval
